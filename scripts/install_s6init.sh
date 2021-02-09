@@ -20,3 +20,5 @@ else
 
   echo "$S6_VERSION" > /rocker_scripts/.s6_version
 fi
+
+mkdir -p /var/run/s6
