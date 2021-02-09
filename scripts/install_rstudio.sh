@@ -106,6 +106,10 @@ if [ ! -z "$CUDA_HOME" ]; then
   echo "rsession-ld-library-path=$LD_LIBRARY_PATH" >> /etc/rstudio/rserver.conf
 fi
 
+# Set permissions (fix https://github.com/rocker-org/rocker-versioned2/issues/105)
+chown -R root:root /var/lib/rstudio-server
+chmod -R g=u /var/lib/rstudio-server
+
 # set up default user 
 /rocker_scripts/default_user.sh
 
